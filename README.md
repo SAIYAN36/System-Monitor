@@ -6,69 +6,57 @@
 
 
 
-\[!\[Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/SAIYAN36/System-Monitor/releases/tag/v1.0.0)
-
-\[!\[Python](https://img.shields.io/badge/python-3.10%2B-yellow.svg)](https://www.python.org/)
-
-\[!\[PySide6](https://img.shields.io/badge/UI-PySide6-green.svg)](https://doc.qt.io/qtforpython/)
-
-\[!\[Tests](https://img.shields.io/badge/tests-201%20passing-brightgreen.svg)](https://github.com/SAIYAN36/System-Monitor)
-
-\[!\[Platform](https://img.shields.io/badge/platform-Windows-blue.svg)](https://github.com/SAIYAN36/System-Monitor)
-
-\[!\[License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/SAIYAN36/System-Monitor)
-
-
-
-System Monitor provides a live view of your computer's CPU, memory, storage, network, processes, temperatures, and system information.
-
-
-
-It is designed around one principle:
-
-
-
-\*\*If the operating system does not provide a value, the application reports it as unavailable instead of inventing one.\*\*
-
-
-
-\---
-
-
-
-\## 📸 Preview
-
-
-
-<!-- Add screenshots here -->
-
 
 
 ```text
 
-┌──────────────────────────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────────────────────────────────┐
 
-│ System Monitor                                      Dashboard        │
+│  SYSTEM MONITOR                                      ● Monitoring            │
 
-│ v1.0.0             Live system overview                              │
+│  v1.0.0                                                                      │
 
-│                                                                      │
+├───────────────┬──────────────────────────────────────────────────────────────┤
 
-│  CPU Usage          Memory             Disk             Network       │
+│               │  Dashboard                                                   │
 
-│  12.4%              78.2%              41.7%            ↓ 2.4 MB/s   │
+│  ◈ Dashboard  │                                                              │
 
-│  ▇▇▇▇░░░░░░         ▇▇▇▇▇▇▇░░         ▇▇▇▇░░░░░         ↑ 512 KB/s   │
+│               │  ┌────────────────┐ ┌────────────────┐ ┌────────────────┐   │
 
-│                                                                      │
+│  ◉ CPU        │  │ CPU            │ │ MEMORY         │ │ DISK           │   │
 
-│  CPU History                         Memory History                  │
+│               │  │                │ │                │ │                │   │
 
-│  ╱╲      ╱╲                          ╱╲                              │
+│  ▣ Memory     │  │    12.4%       │ │    3.1 / 3.9GB │ │     41.7%      │   │
 
-│ ╱  ╲\_\_\_\_╱  ╲\_\_                      ╱  ╲\_\_\_\_                        │
+│               │  │   ▂▃▅▃▂        │ │   ▆▇▆▅▇▆       │ │    ▂▃▄▅▃       │   │
 
-└──────────────────────────────────────────────────────────────────────┘
+│  ◫ Disk       │  └────────────────┘ └────────────────┘ └────────────────┘   │
+
+│               │                                                              │
+
+│  ◇ Network    │  CPU HISTORY                                                │
+
+│               │  100% ┤                                                     │
+
+│  ☰ Processes  │   75% ┤       ╭╮                                            │
+
+│               │   50% ┤  ╭────╯╰──╮      ╭──╮                              │
+
+│  ⓘ System     │   25% ┤──╯          ╰────╯  ╰──                             │
+
+│               │    0% └──────────────────────────────────                   │
+
+│  ⚙ Settings   │                                                              │
+
+│               │  NETWORK                 UPTIME                              │
+
+│               │  ↓ 2.4 MB/s              04:32:17                           │
+
+│               │  ↑ 512 KB/s                                                  │
+
+└───────────────┴──────────────────────────────────────────────────────────────┘
 
 ```
 
