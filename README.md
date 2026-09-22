@@ -1,20 +1,16 @@
-\# 🖥️ System Monitor
+\# System Monitor
 
 
 
-> \*\*Real-time Windows system monitoring, built with Python, PySide6, and psutil.\*\*
+> A real-time system monitoring desktop application for Windows, built with Python, \*\*PySide6\*\* (Qt 6) and \*\*psutil\*\*.
 
 
 
-System Monitor is a Windows desktop application that provides live information about CPU, memory, storage, network activity, processes, temperatures, and system configuration.
+System Monitor provides live information about your CPU, memory, disks, network adapters, processes, temperatures and Windows system information.
 
 
 
-The application is designed around a simple principle:
-
-
-
-> \*\*Real system data only. If the operating system cannot provide a value, System Monitor reports it as unavailable instead of fabricating one.\*\*
+Every value comes from the machine it is running on. Nothing is simulated, randomised or hard-coded. If the operating system or hardware does not expose a value, System Monitor reports it as \*\*Unavailable\*\* instead of fabricating a plausible number.
 
 
 
@@ -22,39 +18,7 @@ The application is designed around a simple principle:
 
 
 
-<p align="center">
-
-
-
-\*\*\[⬇️ Download](https://github.com/SAIYAN36/System-Monitor/releases/tag/v1.0.0)\*\* •
-
-\*\*\[🐛 Report a Bug](https://github.com/SAIYAN36/System-Monitor/issues)\*\* •
-
-\*\*\[💡 Request a Feature](https://github.com/SAIYAN36/System-Monitor/issues)\*\*
-
-
-
-</p>
-
-
-
-\---
-
-
-
-\## 📸 Application Preview
-
-
-
-<!--
-
-Replace this diagram with a real screenshot when available:
-
-
-
-!\[System Monitor Dashboard](assets/screenshots/dashboard.png)
-
-\-->
+\## 📸 Application Output
 
 
 
@@ -62,49 +26,49 @@ Replace this diagram with a real screenshot when available:
 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 
-│ SYSTEM MONITOR                                              ● Monitoring     │
+│  System Monitor                                      Dashboard              │
 
-│ v1.0.0                                                                        │
+│  v1.0.0                         Live system overview, refreshed automatically │
+
+│                                                                              │
 
 ├────────────────┬─────────────────────────────────────────────────────────────┤
 
-│                │  Dashboard                                                   │
+│                │                                                             │
 
-│  ◈ Dashboard   │                                                              │
+│  ◈ Dashboard   │  ┌────────────────┐  ┌────────────────┐  ┌──────────────┐ │
 
-│                │  ┌────────────────┐ ┌────────────────┐ ┌────────────────┐  │
+│                │  │ CPU            │  │ MEMORY         │  │ DISK         │ │
 
-│  ◉ CPU         │  │ CPU USAGE      │ │ MEMORY         │ │ DISK           │  │
+│  ◉ CPU         │  │                │  │                │  │              │ │
 
-│                │  │                │ │                │ │                │  │
+│                │  │    12.4%       │  │  3.1 / 3.9 GB  │  │    41.7%     │ │
 
-│  ▣ Memory      │  │    12.4%       │ │   3.1 / 3.9 GB │ │     41.7%      │  │
+│  ▣ Memory      │  │  ▂▃▅▃▂▂▃       │  │  ▆▇▆▅▇▆▅       │  │   ▂▃▄▅▃▂     │ │
 
-│                │  │   ▂▃▅▃▂▂▃      │ │   ▆▇▆▅▇▆▅      │ │    ▂▃▄▅▃▂      │  │
+│                │  └────────────────┘  └────────────────┘  └──────────────┘ │
 
-│  ◫ Disk        │  └────────────────┘ └────────────────┘ └────────────────┘  │
+│  ◫ Disk        │                                                             │
 
-│                │                                                              │
+│                │  CPU HISTORY                                               │
 
-│  ◇ Network     │  CPU HISTORY                                                │
+│  ◇ Network     │ 100% ┤                                                     │
 
-│                │  100% ┤                                                     │
+│                │  75% ┤       ╭╮                                            │
 
-│  ☰ Processes   │   75% ┤       ╭╮                                            │
+│  ☰ Processes   │  50% ┤  ╭────╯╰──╮       ╭──╮                             │
 
-│                │   50% ┤  ╭────╯╰──╮       ╭──╮                             │
+│                │  25% ┤──╯          ╰─────╯  ╰──                           │
 
-│  ⓘ System      │   25% ┤──╯          ╰─────╯  ╰──                           │
+│  ⓘ System      │   0% └──────────────────────────────────                  │
 
-│                │    0% └──────────────────────────────────                   │
+│                │                                                             │
 
-│  ⚙ Settings    │                                                              │
+│  ⚙ Settings    │  NETWORK                         UPTIME                    │
 
-│                │  NETWORK                         SYSTEM UPTIME               │
+│                │  ↓ 2.4 MB/s                      04:32:17                  │
 
-│                │  ↓ 2.4 MB/s                      04:32:17                    │
-
-│                │  ↑ 512 KB/s                                                  │
+│                │  ↑ 512 KB/s                                                │
 
 └────────────────┴─────────────────────────────────────────────────────────────┘
 
@@ -116,187 +80,85 @@ Replace this diagram with a real screenshot when available:
 
 
 
-\# ✨ Features
+\# 1. What is included
 
 
 
-System Monitor contains eight dedicated monitoring pages.
+\### Dashboard
 
 
 
-| Page                | What it provides                                        |
+CPU %, RAM %, aggregate disk usage %, network upload/download speed, system uptime, CPU temperature when the machine exposes one, running process count and the current time, plus four live graphs:
 
-| ------------------- | ------------------------------------------------------- |
 
-| 📊 \*\*Dashboard\*\*    | Live overview of the entire system                      |
 
-| 🧠 \*\*CPU\*\*          | CPU utilization, cores, threads, clocks and temperature |
+\* CPU
 
-| 💾 \*\*Memory\*\*       | RAM and page-file statistics                            |
+\* Memory
 
-| 💿 \*\*Disk\*\*         | Volumes, capacity and I/O activity                      |
+\* Network
 
-| 🌐 \*\*Network\*\*      | Adapter information and network traffic                 |
+\* Disk
 
-| ⚙️ \*\*Processes\*\*    | Running processes and resource usage                    |
 
-| 🖥️ \*\*System Info\*\* | Windows and hardware information                        |
 
-| 🎨 \*\*Settings\*\*     | Monitoring and application configuration                |
+\### CPU
 
 
 
-\---
-
-
-
-\## 📊 Dashboard
-
-
-
-The Dashboard provides a live overview of the machine.
-
-
-
-\### Metrics
-
-
-
-\* CPU utilization
-
-\* RAM utilization
-
-\* Aggregate disk utilization
-
-\* Network upload speed
-
-\* Network download speed
-
-\* System uptime
-
-\* CPU temperature when available
-
-\* Running process information
-
-\* Current time
-
-
-
-\### Live graphs
-
-
-
-\* CPU usage
-
-\* Memory usage
-
-\* Network traffic
-
-\* Disk activity
-
-
-
-The Dashboard is designed to provide useful information without requiring the user to navigate through multiple pages.
-
-
-
-\---
-
-
-
-\# 🧠 CPU Monitoring
-
-
-
-The CPU page provides detailed processor information.
-
-
-
-\### Information available
-
-
-
-\* Overall CPU utilization
-
-\* Per-core utilization
+\* Overall and per-core utilisation
 
 \* Processor model
 
 \* Physical core count
 
-\* Logical processor count
+\* Thread count
 
-\* Current clock speed
+\* Current and maximum clock speed
 
-\* Maximum clock speed
-
-\* CPU architecture
+\* Architecture
 
 \* Load average
 
+\* Usage history graph
+
 \* CPU temperature
 
-\* Temperature sensor provider
-
-\* CPU usage history
+\* Temperature sensor source
 
 
 
-CPU data is collected independently from the UI thread.
+\### Memory
 
 
 
-\---
+\* Total RAM
+
+\* Used RAM
+
+\* Available RAM
+
+\* Utilisation
+
+\* Usage history graph
+
+\* Page file / swap figures
+
+\* Page file gauge
 
 
 
-\# 💾 Memory Monitoring
+\### Disk
 
 
 
-The Memory page displays:
+Every mounted volume is detected automatically.
 
 
 
-\* Total physical memory
-
-\* Used memory
-
-\* Available memory
-
-\* Memory utilization
-
-\* Page-file size
-
-\* Page-file usage
-
-\* Memory history
+For each volume:
 
 
-
-All values are collected from the operating system at runtime.
-
-
-
-\---
-
-
-
-\# 💿 Disk Monitoring
-
-
-
-System Monitor automatically discovers mounted volumes.
-
-
-
-For each volume it can display:
-
-
-
-\* Drive name
-
-\* Volume label
 
 \* Capacity
 
@@ -310,13 +172,11 @@ For each volume it can display:
 
 \* Drive type
 
-
-
-\### I/O monitoring
+\* Windows volume label
 
 
 
-The application also tracks:
+Disk monitoring also provides:
 
 
 
@@ -324,153 +184,79 @@ The application also tracks:
 
 \* Write throughput
 
-\* Cumulative read counters
+\* Cumulative read/write counters
 
-\* Cumulative write counters
-
-\* Disk activity history
+\* Activity graph
 
 
 
-Counter values are converted into rates using elapsed time between samples.
+\### Network
 
 
 
-\---
+\* Upload/download speed
 
+\* Cumulative totals
 
+\* Primary IPv4 address
 
-\# 🌐 Network Monitoring
+\* Traffic graph
 
-
-
-The Network page provides both traffic information and adapter details.
-
-
-
-\### Traffic
-
-
-
-\* Download speed
-
-\* Upload speed
-
-\* Total downloaded
-
-\* Total uploaded
-
-\* Traffic history
-
-
-
-\### Adapter information
-
-
-
-\* Adapter name
+\* Network adapter table
 
 \* Link state
 
-\* IPv4 address
-
-\* IPv6 address
+\* IPv4/IPv6 addresses
 
 \* MAC address
 
 \* Link speed
 
-\* Per-adapter traffic
+\* Per-adapter traffic totals
 
 
 
-\---
+\### Processes
 
 
 
-\# ⚙️ Process Monitoring
+A sortable table of running processes containing:
 
 
 
-The Processes page provides a sortable table of running processes.
-
-
-
-\### Process information
-
-
-
-\* Process name
+\* Name
 
 \* PID
 
-\* CPU usage
+\* CPU %
 
-\* Memory percentage
+\* Memory %
 
 \* Memory usage
 
 \* Thread count
 
-\* Process status
-
-\* User information where permitted
-
-\* Executable information where permitted
-
-\* Command line where permitted
+\* Status
 
 
 
-A search/filter field makes it easier to locate individual processes.
+Also includes:
 
 
 
-\### Process termination
+\* Process filter
+
+\* Process details panel
+
+\* Confirmed \*\*End Task\*\* action
 
 
 
-The application provides a confirmed \*\*End Task\*\* operation.
+\### System Information
 
 
 
-Protected processes are handled gracefully. If Windows denies access, System Monitor reports the permission problem rather than crashing.
-
-
-
-\### Performance consideration
-
-
-
-Process enumeration is one of the most expensive monitoring operations.
-
-
-
-For this reason:
-
-
-
-> \*\*The process table is collected only while the Processes page is open.\*\*
-
-
-
-When the page is closed, the process enumeration work stops.
-
-
-
-\---
-
-
-
-\# 🖥️ System Information
-
-
-
-The System Information page displays:
-
-
-
-\### Operating system
+Displays:
 
 
 
@@ -486,23 +272,11 @@ The System Information page displays:
 
 \* Machine type
 
-
-
-\### Software
-
-
-
 \* Python version
 
 \* Qt version
 
 \* psutil version
-
-
-
-\### System state
-
-
 
 \* Boot time
 
@@ -510,13 +284,7 @@ The System Information page displays:
 
 \* Installed memory
 
-\* Page-file size
-
-
-
-\### Hardware
-
-
+\* Page file size
 
 \* Volumes
 
@@ -524,31 +292,15 @@ The System Information page displays:
 
 \* Network adapters
 
-
-
-\### Application
-
-
-
-\* Log directory
-
-\* Configuration location
+\* Application log directory
 
 
 
-\---
+\### Settings
 
 
 
-\# 🎨 Settings
-
-
-
-System Monitor provides configurable application behavior.
-
-
-
-\### Monitoring
+Configurable options include:
 
 
 
@@ -556,53 +308,23 @@ System Monitor provides configurable application behavior.
 
 \* Graph history length
 
-\* CPU temperature interval
+\* CPU temperature reading
 
-
-
-\### Startup
-
-
-
-\* Start with Windows
+\* Temperature interval
 
 \* Start minimized
 
-
-
-\### Tray
-
-
+\* Start with Windows
 
 \* Keep running in notification area
 
-
-
-\### Process management
-
-
-
 \* Confirm before ending a process
 
+\* Dark/light theme
 
+\* Dashboard cards
 
-\### Appearance
-
-
-
-\* Dark theme
-
-\* Light theme
-
-
-
-\### Dashboard
-
-
-
-\* Enable/disable dashboard cards
-
-\* Enable/disable dashboard graphs
+\* Dashboard graphs
 
 
 
@@ -610,703 +332,7 @@ System Monitor provides configurable application behavior.
 
 
 
-\# 🏗️ Architecture
-
-
-
-System Monitor separates monitoring, services, and UI responsibilities.
-
-
-
-```text
-
-&#x20;                        ┌───────────────────────┐
-
-&#x20;                        │      PySide6 UI       │
-
-&#x20;                        │                       │
-
-&#x20;                        │ Dashboard             │
-
-&#x20;                        │ CPU                   │
-
-&#x20;                        │ Memory                │
-
-&#x20;                        │ Disk                  │
-
-&#x20;                        │ Network               │
-
-&#x20;                        │ Processes             │
-
-&#x20;                        │ System Info           │
-
-&#x20;                        │ Settings              │
-
-&#x20;                        └───────────┬───────────┘
-
-&#x20;                                    │
-
-&#x20;                             MetricsUpdate
-
-&#x20;                                    │
-
-&#x20;                                    ▼
-
-&#x20;                        ┌───────────────────────┐
-
-&#x20;                        │    MonitorWorker      │
-
-&#x20;                        │       QThread         │
-
-&#x20;                        └───────────┬───────────┘
-
-&#x20;                                    │
-
-&#x20;                                    ▼
-
-&#x20;                        ┌───────────────────────┐
-
-&#x20;                        │    SystemMonitor      │
-
-&#x20;                        │                       │
-
-&#x20;                        │ CPU                   │
-
-&#x20;                        │ Memory                │
-
-&#x20;                        │ Disk                  │
-
-&#x20;                        │ Network               │
-
-&#x20;                        │ Processes             │
-
-&#x20;                        │ System                │
-
-&#x20;                        │ Sensors               │
-
-&#x20;                        └───────────┬───────────┘
-
-&#x20;                                    │
-
-&#x20;                        ┌───────────▼───────────┐
-
-&#x20;                        │        psutil         │
-
-&#x20;                        │    Windows APIs       │
-
-&#x20;                        │       Sensors         │
-
-&#x20;                        └───────────────────────┘
-
-```
-
-
-
-\### Separation of responsibilities
-
-
-
-```text
-
-app.monitoring
-
-&#x20;     │
-
-&#x20;     ├── Collects system data
-
-&#x20;     ├── No Qt widgets
-
-&#x20;     └── Independently testable
-
-
-
-app.services
-
-&#x20;     │
-
-&#x20;     ├── Background monitoring
-
-&#x20;     ├── Settings
-
-&#x20;     ├── Logging
-
-&#x20;     ├── History
-
-&#x20;     └── Windows startup
-
-
-
-app.ui
-
-&#x20;     │
-
-&#x20;     ├── PySide6 interface
-
-&#x20;     ├── Pages
-
-&#x20;     ├── Widgets
-
-&#x20;     ├── Themes
-
-&#x20;     └── Navigation
-
-```
-
-
-
-The monitoring layer never directly manipulates the UI.
-
-
-
-The UI never calls psutil directly.
-
-
-
-\---
-
-
-
-\# 🧵 Threading Model
-
-
-
-System monitoring runs in a dedicated worker thread.
-
-
-
-```text
-
-&#x20;             GUI THREAD
-
-┌──────────────────────────────────┐
-
-│                                  │
-
-│ MainWindow                       │
-
-│ ├── Sidebar                      │
-
-│ ├── Visible Page                 │
-
-│ └── Status Bar                   │
-
-│                                  │
-
-└───────────────▲──────────────────┘
-
-&#x20;               │
-
-&#x20;         Qt Signal
-
-&#x20;      MetricsUpdate
-
-&#x20;               │
-
-┌───────────────┴──────────────────┐
-
-│        MONITOR WORKER            │
-
-│            QThread               │
-
-│                                  │
-
-│  SystemMonitor.collect()         │
-
-│            ↓                     │
-
-│  MetricHistory.append()          │
-
-│            ↓                     │
-
-│  sleep(interval - work\_time)     │
-
-│                                  │
-
-└──────────────────────────────────┘
-
-```
-
-
-
-This prevents slow system queries from blocking the GUI.
-
-
-
-Each update is represented as an immutable `MetricsUpdate` containing the current snapshot and graph data.
-
-
-
-\---
-
-
-
-\# ⚡ Performance Design
-
-
-
-Performance is part of the architecture.
-
-
-
-\## Visible-page updates
-
-
-
-Only the currently visible page receives UI updates.
-
-
-
-Hidden pages do not continuously redraw.
-
-
-
-\## Lazy page creation
-
-
-
-Pages are created when first visited rather than constructing all eight screens during startup.
-
-
-
-\## Process enumeration
-
-
-
-The process table is collected only when its page is active.
-
-
-
-\## Cached information
-
-
-
-Information that rarely changes is cached using TTL-based caching.
-
-
-
-Examples:
-
-
-
-\* Volume lists
-
-\* Network adapter lists
-
-\* Operating system information
-
-\* Temperature readings
-
-
-
-\## Bounded graph history
-
-
-
-Graphs use fixed-capacity buffers.
-
-
-
-Old samples are discarded automatically.
-
-
-
-This prevents graph history from growing indefinitely.
-
-
-
-\---
-
-
-
-\# 📈 Monitoring Cadence
-
-
-
-Different data is collected at different frequencies.
-
-
-
-| Data                |             Cadence | Reason                         |
-
-| ------------------- | ------------------: | ------------------------------ |
-
-| CPU usage           |          Every poll | Cheap                          |
-
-| Memory              |          Every poll | Cheap                          |
-
-| Network counters    |          Every poll | Cheap                          |
-
-| Disk counters       |          Every poll | Cheap                          |
-
-| Volume information  |        5–30 seconds | Rarely changes                 |
-
-| Adapter information |        5–30 seconds | Rarely changes                 |
-
-| OS information      |              Cached | Rarely changes                 |
-
-| Temperature         |         \~30 seconds | Sensor access can be expensive |
-
-| Processes           | Processes page only | Most expensive operation       |
-
-
-
-The default monitoring interval is configurable between \*\*500 ms and 10 seconds\*\*.
-
-
-
-\---
-
-
-
-\# 📡 Rates Instead of Counters
-
-
-
-Windows exposes cumulative network and disk byte counters.
-
-
-
-System Monitor converts these counters into rates:
-
-
-
-```text
-
-rate = counter\_difference / elapsed\_time
-
-```
-
-
-
-The implementation uses `time.perf\_counter()` for accurate interval measurements.
-
-
-
-If a counter decreases, the application treats it as a reset instead of generating a false traffic spike.
-
-
-
-The first reading of a counter is therefore reported as:
-
-
-
-> \*\*Unavailable\*\*
-
-
-
-A valid rate becomes available after the next sample.
-
-
-
-\---
-
-
-
-\# 🌡️ Temperature Monitoring
-
-
-
-CPU temperature is hardware-dependent.
-
-
-
-System Monitor uses a provider chain:
-
-
-
-```text
-
-&#x20;            Temperature Request
-
-&#x20;                     │
-
-&#x20;                     ▼
-
-&#x20;         ┌─────────────────────┐
-
-&#x20;         │ psutil sensors      │
-
-&#x20;         └──────────┬──────────┘
-
-&#x20;                    │ unavailable
-
-&#x20;                    ▼
-
-&#x20;         ┌─────────────────────┐
-
-&#x20;         │ LibreHardwareMonitor│
-
-&#x20;         │ OpenHardwareMonitor │
-
-&#x20;         └──────────┬──────────┘
-
-&#x20;                    │ unavailable
-
-&#x20;                    ▼
-
-&#x20;         ┌─────────────────────┐
-
-&#x20;         │ Windows ACPI        │
-
-&#x20;         │ Thermal Zone        │
-
-&#x20;         └──────────┬──────────┘
-
-&#x20;                    │ unavailable
-
-&#x20;                    ▼
-
-&#x20;               Unavailable
-
-```
-
-
-
-The application never invents a temperature.
-
-
-
-If no provider works, the UI displays the reason.
-
-
-
-Because ACPI queries can block, temperature reading is isolated from the main monitoring thread.
-
-
-
-\---
-
-
-
-\# 🛡️ Error Handling
-
-
-
-Monitoring applications interact with hardware and operating-system APIs that can fail.
-
-
-
-System Monitor treats individual failures as isolated events.
-
-
-
-Examples:
-
-
-
-```text
-
-Sensor unavailable
-
-&#x20;      ↓
-
-CPU temperature = None
-
-&#x20;      ↓
-
-UI displays "Unavailable"
-
-```
-
-
-
-A disappearing drive:
-
-
-
-```text
-
-Volume disappears
-
-&#x20;      ↓
-
-Collector skips the volume
-
-&#x20;      ↓
-
-Other volumes continue working
-
-```
-
-
-
-A protected process:
-
-
-
-```text
-
-PermissionError
-
-&#x20;      ↓
-
-Readable fields remain
-
-&#x20;      ↓
-
-Restricted fields marked "Access denied"
-
-```
-
-
-
-A failed subsystem should never bring down the entire monitoring application.
-
-
-
-\---
-
-
-
-\# 🧪 Testing
-
-
-
-The project currently contains:
-
-
-
-> \*\*201 tests\*\*
-
-
-
-Run the complete test suite:
-
-
-
-```powershell
-
-.venv\\Scripts\\python.exe -m pip install -r requirements-dev.txt
-
-.venv\\Scripts\\python.exe -m pytest
-
-```
-
-
-
-\## Test coverage
-
-
-
-| Test module          | Purpose                                      |
-
-| -------------------- | -------------------------------------------- |
-
-| `test\_formatting.py` | Formatting and edge cases                    |
-
-| `test\_ringbuffer.py` | Fixed-capacity buffers                       |
-
-| `test\_rate.py`       | Counter → rate conversion                    |
-
-| `test\_settings.py`   | Settings and persistence                     |
-
-| `test\_history.py`    | Graph history                                |
-
-| `test\_monitoring.py` | Real-machine monitoring and failure handling |
-
-| `test\_sensors.py`    | Temperature provider chain                   |
-
-| `test\_processes.py`  | Process enumeration and termination          |
-
-| `test\_config.py`     | Paths and platform detection                 |
-
-| `test\_ui\_smoke.py`   | UI rendering and page checks                 |
-
-
-
-The monitoring tests verify invariants rather than hard-coded hardware values.
-
-
-
-For example:
-
-
-
-\* CPU percentages remain within valid bounds
-
-\* Memory values remain consistent
-
-\* Every logical processor is represented
-
-\* Failed psutil calls are handled safely
-
-
-
-The GUI tests use Qt's offscreen platform and therefore do not require an interactive desktop window.
-
-
-
-\---
-
-
-
-\# 📦 Building the Windows Executable
-
-
-
-Install development dependencies:
-
-
-
-```powershell
-
-.venv\\Scripts\\python.exe -m pip install -r requirements-dev.txt
-
-```
-
-
-
-Build with PyInstaller:
-
-
-
-```powershell
-
-.venv\\Scripts\\python.exe -m PyInstaller --noconfirm system\_monitor.spec
-
-```
-
-
-
-Output:
-
-
-
-```text
-
-dist/
-
-└── SystemMonitor/
-
-&#x20;   ├── SystemMonitor.exe
-
-&#x20;   └── \_internal/
-
-```
-
-
-
-Verify the packaged application:
-
-
-
-```powershell
-
-.venv\\Scripts\\python.exe tools\\launch\_check.py --exe dist\\SystemMonitor\\SystemMonitor.exe
-
-```
-
-
-
-The launcher check verifies that the executable starts correctly, monitors its resource usage, and checks its application log.
-
-
-
-\---
-
-
-
-\# 📁 Project Structure
+\# 2. Project structure
 
 
 
@@ -1316,19 +342,33 @@ System-Monitor/
 
 │
 
+├── main.py                     # Entry point
+
+├── requirements.txt            # Runtime dependencies
+
+├── requirements-dev.txt        # Test and packaging dependencies
+
+├── pyproject.toml              # Pytest configuration
+
+├── system\_monitor.spec         # PyInstaller configuration
+
+├── README.md
+
+│
+
 ├── app/
 
-│   ├── config.py
+│   ├── config.py               # Paths, constants, refresh bounds
 
 │   │
 
 │   ├── models/
 
-│   │   └── snapshot.py
+│   │   └── snapshot.py         # Immutable metric dataclasses
 
 │   │
 
-│   ├── monitoring/
+│   ├── monitoring/             # System data collection
 
 │   │   ├── collector.py
 
@@ -1350,7 +390,7 @@ System-Monitor/
 
 │   │
 
-│   ├── services/
+│   ├── services/               # Application behaviour
 
 │   │   ├── monitor\_service.py
 
@@ -1364,7 +404,7 @@ System-Monitor/
 
 │   │
 
-│   ├── ui/
+│   ├── ui/                     # PySide6 interface
 
 │   │   ├── main\_window.py
 
@@ -1424,15 +464,7 @@ System-Monitor/
 
 │
 
-├── assets/
-
-│   ├── icon.ico
-
-│   └── icon.png
-
-│
-
-├── tests/
+├── tests/                      # 201 pytest tests
 
 │
 
@@ -1444,21 +476,581 @@ System-Monitor/
 
 │
 
-├── main.py
+├── assets/
 
-├── pyproject.toml
+│   ├── icon.ico
 
-├── requirements.txt
+│   └── icon.png
 
-├── requirements-dev.txt
-
-├── system\_monitor.spec
-
-├── run.bat
-
-├── README.md
+│
 
 └── SystemMonitor-v1.0.0-Windows-x64.zip
+
+```
+
+
+
+The layering is intentional:
+
+
+
+```text
+
+app.monitoring ──────► system data
+
+&#x20;      │
+
+&#x20;      │
+
+&#x20;      ▼
+
+app.services ────────► application behaviour
+
+&#x20;      │
+
+&#x20;      │
+
+&#x20;      ▼
+
+app.ui ──────────────► presentation
+
+```
+
+
+
+The monitoring and utility layers do not import Qt widgets.
+
+
+
+The UI never accesses psutil directly.
+
+
+
+This separation keeps the data layer independently testable.
+
+
+
+\---
+
+
+
+\# 3. How the monitoring works
+
+
+
+\## Threading
+
+
+
+```text
+
+&#x20;            GUI THREAD                         MONITOR WORKER
+
+┌────────────────────────────┐          ┌──────────────────────────────┐
+
+│                            │          │                              │
+
+│ MainWindow                 │          │ QThread                      │
+
+│                            │          │                              │
+
+│ ├── Sidebar                │          │ SystemMonitor.collect()      │
+
+│ ├── Visible Page           │◄─────────│ MetricHistory.append()       │
+
+│ └── Status Bar             │ Signal   │ sleep(interval - work time)  │
+
+│                            │          │                              │
+
+└────────────────────────────┘          └──────────────────────────────┘
+
+```
+
+
+
+Every psutil call happens on the worker thread rather than the GUI thread.
+
+
+
+This means a slow system query cannot freeze the interface.
+
+
+
+Each reading is delivered as one immutable `MetricsUpdate` containing:
+
+
+
+\* A `Snapshot`
+
+\* Graph series
+
+\* Plain tuples rather than mutable shared state
+
+
+
+\### Visible-page updates
+
+
+
+Only the visible page is updated.
+
+
+
+Hidden pages receive no UI updates.
+
+
+
+Pages are also created lazily when first visited, reducing startup work.
+
+
+
+\### Polling cadence
+
+
+
+The worker accounts for collection time:
+
+
+
+```text
+
+sleep\_time = interval - collection\_time
+
+```
+
+
+
+This prevents the monitoring cadence from continuously drifting.
+
+
+
+If a poll repeatedly fails, the worker backs off up to 5× instead of repeatedly hammering a broken query.
+
+
+
+\---
+
+
+
+\## Process enumeration is opt-in
+
+
+
+Walking the process table is one of the most expensive monitoring operations.
+
+
+
+Therefore, process enumeration only occurs while the \*\*Processes\*\* page is visible.
+
+
+
+```text
+
+Dashboard
+
+&#x20;  │
+
+&#x20;  └── Process table disabled
+
+&#x20;          │
+
+&#x20;          ▼
+
+Processes page opened
+
+&#x20;          │
+
+&#x20;          ▼
+
+Process enumeration enabled
+
+&#x20;          │
+
+&#x20;          ▼
+
+Processes page closed
+
+&#x20;          │
+
+&#x20;          ▼
+
+Process enumeration disabled
+
+```
+
+
+
+This means the Dashboard does not continuously pay the cost of collecting the entire process table.
+
+
+
+\### Process CPU percentages
+
+
+
+psutil calculates process CPU usage from the difference between previous and current readings on the same `Process` object.
+
+
+
+System Monitor therefore maintains a cache of `psutil.Process` objects keyed by PID.
+
+
+
+Creating a fresh object on every sweep would cause process CPU measurements to remain at or near zero because there would be no previous sample associated with the new object.
+
+
+
+Dead PIDs are removed from the cache after each sweep so the cache cannot grow indefinitely.
+
+
+
+\---
+
+
+
+\## Rates instead of counters
+
+
+
+Windows exposes cumulative byte counters.
+
+
+
+Network and disk throughput are calculated as:
+
+
+
+```text
+
+rate = counter\_difference / elapsed\_time
+
+```
+
+
+
+The implementation uses:
+
+
+
+```python
+
+time.perf\_counter()
+
+```
+
+
+
+rather than `time.monotonic()` for interval measurement.
+
+
+
+A negative counter difference indicates that the counter was reset, for example after an adapter was recreated or the machine resumed from sleep.
+
+
+
+Such a sample is treated as unavailable rather than creating a fake traffic spike.
+
+
+
+The first sample for a counter therefore displays:
+
+
+
+> \*\*Unavailable\*\*
+
+
+
+The next sample provides the first valid rate.
+
+
+
+\---
+
+
+
+\## Caching and cadence
+
+
+
+| Work             | Cadence             | Reason              |
+
+| ---------------- | ------------------- | ------------------- |
+
+| CPU              | Every poll          | Cheap               |
+
+| RAM              | Every poll          | Cheap               |
+
+| Network counters | Every poll          | Cheap               |
+
+| Disk counters    | Every poll          | Cheap               |
+
+| Volume list      | 5–30 seconds        | Changes rarely      |
+
+| Adapter list     | 5–30 seconds        | Changes rarely      |
+
+| OS details       | Cached              | Changes rarely      |
+
+| CPU temperature  | \~30 seconds         | Sensors can be slow |
+
+| Process table    | Processes page only | Expensive           |
+
+
+
+\---
+
+
+
+\## Temperature: provider chain
+
+
+
+There is no universal Windows API that provides CPU temperature to a normal user application.
+
+
+
+System Monitor therefore attempts multiple providers.
+
+
+
+```text
+
+&#x20;                CPU Temperature
+
+&#x20;                       │
+
+&#x20;                       ▼
+
+&#x20;         ┌─────────────────────────┐
+
+&#x20;         │ psutil.sensors\_temperatures()
+
+&#x20;         └────────────┬────────────┘
+
+&#x20;                      │ unavailable
+
+&#x20;                      ▼
+
+&#x20;         ┌─────────────────────────┐
+
+&#x20;         │ LibreHardwareMonitor /  │
+
+&#x20;         │ OpenHardwareMonitor     │
+
+&#x20;         └────────────┬────────────┘
+
+&#x20;                      │ unavailable
+
+&#x20;                      ▼
+
+&#x20;         ┌─────────────────────────┐
+
+&#x20;         │ Windows ACPI thermal    │
+
+&#x20;         │ zone                    │
+
+&#x20;         └────────────┬────────────┘
+
+&#x20;                      │ unavailable
+
+&#x20;                      ▼
+
+&#x20;                 Unavailable
+
+```
+
+
+
+`psutil.sensors\_temperatures()` works on Linux and some supported systems, but psutil does not implement it on Windows.
+
+
+
+LibreHardwareMonitor and OpenHardwareMonitor can provide temperature data through their WMI interfaces.
+
+
+
+The ACPI provider uses:
+
+
+
+```text
+
+root/wmi:MSAcpi\_ThermalZoneTemperature
+
+```
+
+
+
+Because the ACPI query can block for seconds, temperature reading runs in its own daemon thread.
+
+
+
+The UI receives the most recently cached result rather than waiting for the sensor query.
+
+
+
+When all providers fail, the failure is cached for 15 minutes to avoid repeatedly launching PowerShell processes for the same unavailable sensor.
+
+
+
+\---
+
+
+
+\## Never crashing
+
+
+
+The monitoring layer is designed around graceful failure.
+
+
+
+A metric that cannot be read becomes:
+
+
+
+```text
+
+None
+
+```
+
+
+
+The formatter then displays:
+
+
+
+```text
+
+Unavailable
+
+```
+
+
+
+Examples:
+
+
+
+```text
+
+CPU sensor fails
+
+&#x20;     ↓
+
+temperature = None
+
+&#x20;     ↓
+
+UI = "Unavailable"
+
+```
+
+
+
+A volume disappearing during a scan is skipped.
+
+
+
+A process exiting while being read is dropped.
+
+
+
+A protected process can leave some fields readable while others are marked:
+
+
+
+```text
+
+Access denied
+
+```
+
+
+
+A failure in one subsystem does not take down the collector.
+
+
+
+\---
+
+
+
+\# 4. Installing and running
+
+
+
+\## Requirements
+
+
+
+\* Windows
+
+\* Python 3.10+
+
+\* Python 3.11.9 recommended for development
+
+
+
+Clone the repository:
+
+
+
+```powershell
+
+git clone https://github.com/SAIYAN36/System-Monitor.git
+
+cd System-Monitor
+
+```
+
+
+
+Create a virtual environment:
+
+
+
+```powershell
+
+python -m venv .venv
+
+```
+
+
+
+Install dependencies:
+
+
+
+```powershell
+
+.venv\\Scripts\\python.exe -m pip install -r requirements.txt
+
+```
+
+
+
+Run the application:
+
+
+
+```powershell
+
+.venv\\Scripts\\python.exe main.py
+
+```
+
+
+
+\### Optional activation
+
+
+
+```powershell
+
+.venv\\Scripts\\Activate.ps1
+
+python main.py
 
 ```
 
@@ -1468,15 +1060,49 @@ System-Monitor/
 
 
 
-\# 📂 Application Data
+\## Command-line flags
 
 
 
-System Monitor does not store application data next to the source code.
+| Flag               | Effect                         |
+
+| ------------------ | ------------------------------ |
+
+| `--minimized`      | Start in the notification area |
+
+| `--debug`          | Enable DEBUG logging           |
+
+| `--reset-settings` | Restore default settings       |
+
+| `--version`        | Print the version and exit     |
 
 
 
-User-specific data is stored under:
+Example:
+
+
+
+```powershell
+
+python main.py --debug
+
+```
+
+
+
+\---
+
+
+
+\## Where the application keeps its files
+
+
+
+Nothing is written next to the source code.
+
+
+
+Application data is stored in the user's profile:
 
 
 
@@ -1498,7 +1124,19 @@ User-specific data is stored under:
 
 
 
-The application exposes the exact locations through the System Information page.
+The log uses rotating files:
+
+
+
+```text
+
+1 MB × 3 backups
+
+```
+
+
+
+The exact paths are shown on the \*\*System Information\*\* page.
 
 
 
@@ -1506,49 +1144,105 @@ The application exposes the exact locations through the System Information page.
 
 
 
-\# 🖥️ Hardware \& Windows Dependencies
+\# 5. Running the tests
 
 
 
-Some functionality depends on the operating system, hardware, firmware, or drivers.
+Install development dependencies:
 
 
 
-| Feature                    | Requirement                    |
+```powershell
 
-| -------------------------- | ------------------------------ |
+.venv\\Scripts\\python.exe -m pip install -r requirements-dev.txt
 
-| CPU temperature            | Supported sensor provider      |
-
-| Process command line       | Sufficient process permissions |
-
-| Ending protected processes | Administrator privileges       |
-
-| Volume label               | Windows volume APIs            |
-
-| Physical disk names        | Windows physical-drive APIs    |
-
-| Disk throughput            | OS-level I/O counters          |
-
-| Page file                  | OS-reported page file          |
-
-| Adapter link speed         | Network driver                 |
-
-| Start with Windows         | Windows registry               |
-
-| System tray                | System tray support            |
+```
 
 
 
-When a feature is unavailable, System Monitor reports:
+Run:
 
 
 
-> \*\*Unavailable\*\*
+```powershell
+
+.venv\\Scripts\\python.exe -m pytest
+
+```
 
 
 
-rather than generating a plausible-looking value.
+Current test count:
+
+
+
+> \*\*201 tests\*\*
+
+
+
+| File                 | Covers                                              |
+
+| -------------------- | --------------------------------------------------- |
+
+| `test\_formatting.py` | Formatters, `None`, NaN and infinity                |
+
+| `test\_ringbuffer.py` | Bounded memory, resizing and statistics             |
+
+| `test\_rate.py`       | Counter → rate conversion, resets and TTL cache     |
+
+| `test\_settings.py`   | Defaults, validation, atomic save and corrupt files |
+
+| `test\_history.py`    | Graph series and capacity limits                    |
+
+| `test\_monitoring.py` | Real machine monitoring and psutil failures         |
+
+| `test\_sensors.py`    | Temperature provider chain                          |
+
+| `test\_processes.py`  | Enumeration, termination and child processes        |
+
+| `test\_config.py`     | Paths and platform detection                        |
+
+| `test\_ui\_smoke.py`   | All eight pages, rendering, themes and settings     |
+
+
+
+The monitoring tests run against the real machine but test \*\*properties and invariants\*\*, not fixed hardware values.
+
+
+
+For example:
+
+
+
+```text
+
+0 ≤ CPU usage ≤ 100
+
+used + free ≈ total
+
+one entry per logical processor
+
+```
+
+
+
+The tests also inject failures into psutil to verify that monitoring continues safely.
+
+
+
+The GUI tests use Qt's `offscreen` platform, so they can render the interface without opening a desktop window.
+
+
+
+\### Coverage
+
+
+
+```powershell
+
+.venv\\Scripts\\python.exe -m pytest --cov=app --cov-report=term-missing
+
+```
 
 
 
@@ -1556,19 +1250,401 @@ rather than generating a plausible-looking value.
 
 
 
-\# 🔧 Extending System Monitor
+\# 6. Building a standalone Windows executable
 
 
 
-Adding a new metric follows a predictable architecture.
+Install packaging dependencies:
 
 
 
-\### 1. Add the data model
+```powershell
+
+.venv\\Scripts\\python.exe -m pip install -r requirements-dev.txt
+
+```
 
 
 
-Add the new field to the appropriate dataclass in:
+Build:
+
+
+
+```powershell
+
+.venv\\Scripts\\python.exe -m PyInstaller --noconfirm system\_monitor.spec
+
+```
+
+
+
+The output is:
+
+
+
+```text
+
+dist\\
+
+└── SystemMonitor\\
+
+&#x20;   ├── SystemMonitor.exe
+
+&#x20;   └── \_internal\\
+
+```
+
+
+
+Run:
+
+
+
+```powershell
+
+dist\\SystemMonitor\\SystemMonitor.exe
+
+```
+
+
+
+Verify the packaged executable:
+
+
+
+```powershell
+
+.venv\\Scripts\\python.exe tools\\launch\_check.py --exe dist\\SystemMonitor\\SystemMonitor.exe
+
+```
+
+
+
+The launch check:
+
+
+
+\* Starts the executable
+
+\* Monitors it for several seconds
+
+\* Measures CPU and memory usage
+
+\* Checks the application log
+
+\* Fails if the process exits early
+
+\* Fails if an `ERROR` entry is written
+
+
+
+\---
+
+
+
+\## Folder build vs. one-file build
+
+
+
+The default build is a folder-based PyInstaller application.
+
+
+
+This is intentional.
+
+
+
+A single-file executable has to extract the complete Qt runtime into a temporary directory every time it starts.
+
+
+
+The folder build avoids that extraction step and provides faster startup.
+
+
+
+If a single executable is required:
+
+
+
+```powershell
+
+.venv\\Scripts\\python.exe -m PyInstaller --noconfirm --onefile --windowed `
+
+&#x20;   --name SystemMonitor `
+
+&#x20;   --icon assets\\icon.ico `
+
+&#x20;   --add-data "assets;assets" `
+
+&#x20;   main.py
+
+```
+
+
+
+The PyInstaller specification also excludes large Qt modules that the application does not use, including:
+
+
+
+\* WebEngine
+
+\* Quick/QML
+
+\* Multimedia
+
+\* 3D
+
+\* Charts
+
+\* SQL
+
+\* Sensors
+
+
+
+This keeps the packaged application substantially smaller.
+
+
+
+\---
+
+
+
+\## Regenerating the icon
+
+
+
+The application icon is generated from the same vector artwork used by the interface.
+
+
+
+No image editor is required.
+
+
+
+```powershell
+
+.venv\\Scripts\\python.exe tools\\make\_icon.py
+
+```
+
+
+
+Output:
+
+
+
+```text
+
+assets/icon.ico
+
+assets/icon.png
+
+```
+
+
+
+\---
+
+
+
+\# 7. Performance
+
+
+
+Performance was measured on the development machine:
+
+
+
+\*\*Intel Core i3-1115G4 · 4 logical processors · 4 GB RAM · Windows 11 25H2\*\*
+
+
+
+Configuration:
+
+
+
+\* Dashboard open
+
+\* 1-second refresh interval
+
+\* Normal background activity
+
+
+
+Observed values:
+
+
+
+| Metric          |                               Observed |
+
+| --------------- | -------------------------------------: |
+
+| Idle CPU        |                    \~1.5–5% of one core |
+
+| Startup CPU     | \~30% of one core for first 2–3 seconds |
+
+| Resident memory |                             \~50–115 MB |
+
+| Graph memory    |                                Bounded |
+
+
+
+CPU is measured using process CPU time over a 20-second window rather than relying only on instantaneous snapshots.
+
+
+
+Actual values depend heavily on the machine's workload.
+
+
+
+The development machine is a small laptop with limited RAM, so these values should not be treated as universal performance guarantees.
+
+
+
+\---
+
+
+
+\## Why the application stays lightweight
+
+
+
+\### 1. Only visible UI is updated
+
+
+
+Hidden pages do not continuously redraw.
+
+
+
+\### 2. Pages are created lazily
+
+
+
+Unused pages do not contribute their full UI cost during startup.
+
+
+
+\### 3. Process enumeration is opt-in
+
+
+
+The expensive process table is only collected while it is visible.
+
+
+
+\### 4. Different data uses different cadences
+
+
+
+Expensive information is not polled as frequently as cheap counters.
+
+
+
+\### 5. Graphs use QPainter
+
+
+
+The graphs are lightweight custom QPainter-based components rather than a large charting framework.
+
+
+
+\### 6. History is bounded
+
+
+
+Fixed-capacity ring buffers prevent unlimited memory growth.
+
+
+
+\---
+
+
+
+\# 8. Features that depend on hardware or Windows
+
+
+
+System Monitor deliberately degrades to \*\*Unavailable\*\* when a feature cannot be provided.
+
+
+
+| Feature                       | Requirement                    | If unavailable                            |
+
+| ----------------------------- | ------------------------------ | ----------------------------------------- |
+
+| CPU temperature               | Supported sensor               | Shows `Unavailable`                       |
+
+| Per-process user/command line | Process permissions            | Restricted fields show `Access denied`    |
+
+| Ending protected process      | Administrator rights           | Windows access error is reported          |
+
+| Disk volume label             | Windows API                    | Field remains unavailable                 |
+
+| Physical disk names           | Windows physical-drive handles | Section remains empty                     |
+
+| Disk throughput               | OS I/O counters                | Rates show `Unavailable`                  |
+
+| Page file                     | OS reports it                  | Shows no page file reported               |
+
+| Load average                  | psutil support                 | Shows `Unavailable`                       |
+
+| Adapter link speed            | Driver support                 | Shows `Unavailable`                       |
+
+| Start with Windows            | Windows registry               | Option unavailable on unsupported systems |
+
+| System tray                   | System tray support            | Tray option unavailable                   |
+
+| Uptime / boot time            | Windows                        | Normally available                        |
+
+
+
+\---
+
+
+
+\## Deliberately not included
+
+
+
+System Monitor does \*\*not\*\* generate:
+
+
+
+\* Fake CPU temperatures
+
+\* Random network speeds
+
+\* Fake disk activity
+
+\* Hard-coded hardware information
+
+\* Simulated process data
+
+
+
+If the machine does not expose a metric, the application says so.
+
+
+
+\---
+
+
+
+\# 9. Extending it
+
+
+
+Adding a new metric follows a predictable process.
+
+
+
+\### Step 1 — Add the model field
+
+
+
+Add the field to the appropriate dataclass:
 
 
 
@@ -1580,7 +1656,7 @@ app/models/snapshot.py
 
 
 
-\### 2. Collect the value
+\### Step 2 — Collect the value
 
 
 
@@ -1596,19 +1672,35 @@ app/monitoring/
 
 
 
-\### 3. Handle failures
+\### Step 3 — Handle errors
 
 
 
-Use the existing safe-call mechanisms so a failed metric becomes `None`.
+Wrap potentially failing calls with the existing safe-call helpers.
 
 
 
-\### 4. Format the value
+A failure should result in:
 
 
 
-Add formatting logic to:
+```text
+
+None
+
+```
+
+
+
+rather than crashing the collector.
+
+
+
+\### Step 4 — Add formatting
+
+
+
+If necessary, add a formatter:
 
 
 
@@ -1620,11 +1712,11 @@ app/utils/formatting.py
 
 
 
-\### 5. Display it
+\### Step 5 — Add it to the UI
 
 
 
-Use the appropriate UI component:
+Use:
 
 
 
@@ -1642,89 +1734,31 @@ Table
 
 
 
-\### 6. Test it
+depending on the type of metric.
 
 
 
-Add tests covering both:
+\### Step 6 — Add tests
 
 
 
-\* successful collection
-
-\* failure/unavailable behavior
+Test:
 
 
 
-For expensive metrics, use TTL caching or page activation to avoid unnecessary work.
+\* Normal collection
+
+\* Missing values
+
+\* Invalid values
+
+\* Provider failures
+
+\* UI display
 
 
 
-\---
-
-
-
-\# 🎯 Design Principles
-
-
-
-System Monitor follows several core principles.
-
-
-
-\### Real data
-
-
-
-Every displayed metric originates from the operating system or a supported hardware provider.
-
-
-
-\### No fabricated values
-
-
-
-Missing information is shown as unavailable.
-
-
-
-\### Graceful degradation
-
-
-
-One failing sensor or subsystem should not crash the application.
-
-
-
-\### Separation of concerns
-
-
-
-Monitoring, services, and UI remain independently testable.
-
-
-
-\### Bounded resources
-
-
-
-Caches and graph histories have explicit limits.
-
-
-
-\### Responsive interface
-
-
-
-System queries remain outside the GUI thread.
-
-
-
-\### Hardware-aware behavior
-
-
-
-The application adapts to what the machine actually exposes.
+For expensive metrics, use the existing TTL cache or page-activation mechanism.
 
 
 
@@ -1732,103 +1766,47 @@ The application adapts to what the machine actually exposes.
 
 
 
-\# 📈 Performance
+\# 📥 Download
 
 
 
-Performance measurements were taken on the development machine:
+\## Windows — v1.0.0
 
 
 
-\*\*Intel Core i3-1115G4 · 4 logical processors · 4 GB RAM · Windows 11 25H2\*\*
-
-
-
-With:
-
-
-
-\* Dashboard open
-
-\* 1-second refresh interval
-
-\* Normal background activity
-
-
-
-Observed values:
-
-
-
-| Metric          |                                   Observed |
-
-| --------------- | -----------------------------------------: |
-
-| Idle CPU        |                        \~1.5–5% of one core |
-
-| Startup CPU     | \~30% of one core for the first 2–3 seconds |
-
-| Resident memory |                                 \~50–115 MB |
-
-| Graph memory    |                                    Bounded |
-
-
-
-These numbers are environment-dependent and should not be interpreted as hardware-independent guarantees.
-
-
-
-\---
-
-
-
-\# 🚀 Release
-
-
-
-\## v1.0.0
-
-
-
-The first public release includes:
-
-
-
-\* Complete eight-page monitoring interface
-
-\* CPU monitoring
-
-\* Memory monitoring
-
-\* Disk monitoring
-
-\* Network monitoring
-
-\* Process monitoring
-
-\* System information
-
-\* Temperature provider chain
-
-\* Dark/light themes
-
-\* Windows startup support
-
-\* System tray support
-
-\* Configurable refresh rates
-
-\* PyInstaller Windows build
-
-\* 201 automated tests
-
-
-
-\### Download
+The easiest way to use System Monitor is to download the packaged Windows release.
 
 
 
 \*\*\[Download System Monitor v1.0.0 →](https://github.com/SAIYAN36/System-Monitor/releases/tag/v1.0.0)\*\*
+
+
+
+The release contains:
+
+
+
+```text
+
+SystemMonitor-v1.0.0-Windows-x64.zip
+
+```
+
+
+
+Extract the ZIP and run:
+
+
+
+```text
+
+SystemMonitor\\SystemMonitor.exe
+
+```
+
+
+
+No Python installation is required for the packaged version.
 
 
 
@@ -1844,27 +1822,25 @@ Contributions are welcome.
 
 
 
-Before submitting a pull request:
+Before submitting a change:
 
 
 
-1\. Fork the repository.
+1\. Create a branch.
 
-2\. Create a feature branch.
+2\. Keep changes focused.
 
-3\. Keep changes focused.
+3\. Add tests for new functionality.
 
-4\. Add tests for new behavior.
+4\. Run the complete test suite.
 
-5\. Run the complete test suite.
+5\. Verify the application manually when changing UI behavior.
 
-6\. Document significant changes.
-
-7\. Submit a pull request.
+6\. Document significant architectural changes.
 
 
 
-Example:
+Run the tests with:
 
 
 
@@ -1880,69 +1856,29 @@ python -m pytest
 
 
 
-\# 🐛 Issues \& Feature Requests
+\# 🐛 Bug Reports
 
 
 
-Found a bug or have an idea?
+When reporting an issue, include:
 
 
-
-Open an issue:
-
-
-
-\*\*\[Create an Issue →](https://github.com/SAIYAN36/System-Monitor/issues)\*\*
-
-
-
-When reporting a bug, include:
-
-
-
-\* Windows version
-
-\* Python version if running from source
 
 \* System Monitor version
+
+\* Windows version/build
+
+\* Python version if running from source
 
 \* Steps to reproduce
 
 \* Relevant log output
 
-\* Screenshots when useful
+\* Screenshots where useful
 
 
 
-\---
-
-
-
-\# ⭐ Support the Project
-
-
-
-If System Monitor is useful to you:
-
-
-
-⭐ \*\*Star the repository\*\*
-
-
-
-🐛 \*\*Report bugs\*\*
-
-
-
-💡 \*\*Suggest features\*\*
-
-
-
-🔧 \*\*Contribute improvements\*\*
-
-
-
-📢 \*\*Share the project\*\*
+Please avoid posting sensitive system information.
 
 
 
@@ -1954,7 +1890,7 @@ If System Monitor is useful to you:
 
 
 
-System Monitor is released under the \*\*MIT License\*\*.
+This project is released under the \*\*MIT License\*\*.
 
 
 
@@ -1966,27 +1902,27 @@ See \[`LICENSE`](LICENSE) for the complete license text.
 
 
 
-<div align="center">
+\# ⭐ System Monitor
 
 
 
-\### System Monitor
+Built with:
 
 
 
-\*\*Real-time monitoring. Real system data. No fabricated numbers.\*\*
+\*\*Python · PySide6 · psutil · PyInstaller\*\*
 
 
 
-Built with \*\*Python · PySide6 · psutil\*\*
+Real-time monitoring.
 
 
 
-\[GitHub Repository](https://github.com/SAIYAN36/System-Monitor)
+Real machine data.
 
 
 
-</div>
+No fabricated numbers.
 
 
 
