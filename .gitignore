@@ -1,0 +1,21 @@
+# Virtual environment
+.venv/
+venv/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Packaging output
+build/
+dist/
+*.spec.bak
+
+# Editors and OS files
+.idea/
+.vscode/
+Thumbs.db
+desktop.ini
